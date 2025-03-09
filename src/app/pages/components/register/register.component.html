@@ -1,0 +1,76 @@
+<section class="border p-4">
+    <div class="container">
+        <div class="border bg-white  m-auto py-2 px-3 form">
+            <h2 class="text-center text-orange">Sign Up</h2>
+            <form [formGroup]="registerForm" (ngSubmit)="submit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">name</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    @if(registerForm.get('name')?.touched){
+                    @if(registerForm.get('name')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    @if(registerForm.get('email')?.touched){
+                    @if(registerForm.get('email')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    @else if (registerForm.get('email')?.hasError('email')) {
+                    <p class="alert alert-danger">invalid email</p>
+                    }
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    @if(registerForm.get('password')?.touched){
+                    @if(registerForm.get('password')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    @else if (registerForm.get('password')?.hasError('minlength')) {
+                    <p class="alert alert-danger">must be at least 3 char</p>
+                    }
+                    @else if (registerForm.get('password')?.hasError('maxlength')) {
+                    <p class="alert alert-danger">must be at most 8 char</p>
+                    }
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="repassword" class="form-label">repassword</label>
+                    <input type="password" class="form-control" id="repassword" formControlName="rePassword">
+                    @if(registerForm.get('rePassword')?.touched){
+                    @if(registerForm.get('rePassword')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    @else if (registerForm.hasError('notMatched')) {
+                    <p class="alert alert-danger">pass not match</p>
+                    }
+                    }
+                </div>
+
+
+                <div class="me-3">
+                    <button class="bg-orange border py-2 w-100 text-white">submit</button>
+                </div>
+                <div class="text-center my-3">
+                    <span>already have account <a class="text-decoration-none link text-orange"
+                            routerLink="/login">login</a>
+                    </span>
+                </div>
+
+            </form>
+            <div class="facebook bg-color py-2 border rounded-3 text-center mb-2">
+                <a class="text-white text-decoration-none"><i class="fab fa-facebook-f me-2"></i>Sign in With
+                    Facebook</a>
+            </div>
+            <div class="twitter twiter-color py-2 border rounded-3 text-center">
+                <a class="text-white text-decoration-none"><i class="fab fa-twitter me-2"></i>Sign in With Twitter</a>
+            </div>
+        </div>
+    </div>
+</section>

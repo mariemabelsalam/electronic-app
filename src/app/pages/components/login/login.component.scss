@@ -1,0 +1,27 @@
+input {
+    border: 2px solid gray;
+}
+
+section {
+    background-color: #F3F4F8;
+}
+
+.form {
+    width: 60%;
+}
+
+form .form-control {
+
+    border: 2px solid #888;
+}
+
+form .form-control:focus {
+    border-color: #ff7f50;
+    box-shadow: none;
+}
+
+@media (max-width: 767.98px) {
+    .form {
+        width: 100%;
+    }
+}

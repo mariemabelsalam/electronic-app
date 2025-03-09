@@ -1,0 +1,28 @@
+<div class="card p-3 shadow-sm h-100">
+    <div [routerLink]="['/productdetails' , product.id]">
+        <div class="image text-center">
+            <img #image [src]="product.image" (error)="image.src='/images/1691074519203-galaxy S22 5G.jpg'"
+                class="img-fluid w-100" alt="{{product.title}}">
+        </div>
+        <div class="content mt-3">
+            <p class="fw-bold fs-5 mb-1"> {{product.category}} </p>
+            <p class="text-orange mb-2"> {{product.brand}} </p>
+            <p class="text-muted mb-3" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{product.title}}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="fw-medium fs-5">{{product.price |currency}}</p>
+                <div>
+                    <p class="bg-danger rounded-pill text-white fw-bold px-3 py-1 mt-1" style="font-size: 0.9rem;">
+                        {{product.discount}}% OFF
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <button class="border rounded-3 py-2 bg-orange text-white w-100" >Add To
+            Cart
+        </button>
+    </div>
+</div>

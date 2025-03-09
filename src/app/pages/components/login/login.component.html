@@ -1,0 +1,45 @@
+<section class="border p-4">
+    <div class="container">
+        <div class="border bg-white  m-auto py-2 px-3 form">
+            <h2 class="text-center text-orange">Sign In</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    @if(loginForm.get('email')?.touched){
+                    @if(loginForm.get('email')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    @else if (loginForm.get('email')?.hasError('email')) {
+                    <p class="alert alert-danger">invalid email</p>
+                    }
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    @if(loginForm.get('password')?.touched){
+                    @if(loginForm.get('password')?.hasError('required')) {
+                    <p class="alert alert-danger">this inpt is required</p>
+                    }
+                    @else if (loginForm.get('password')?.hasError('minlength')) {
+                    <p class="alert alert-danger">must be at least 3 char</p>
+                    }
+                    @else if (loginForm.get('password')?.hasError('maxlength')) {
+                    <p class="alert alert-danger">must be at most 8 char</p>
+                    }
+                    }
+                </div>
+                <div class="me-3">
+                    <button class="bg-orange border py-2 text-white w-100">submit</button>
+                </div>
+                <div class="text-center my-3">
+                    <span>not a member <a class="text-decoration-none link text-orange" routerLink="/register">Sign Up
+                            now</a>
+                    </span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

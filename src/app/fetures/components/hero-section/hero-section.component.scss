@@ -1,0 +1,11 @@
+.bg-orange {
+    background-color: #ff7f50;
+}
+
+
+
+@media(max-width:767px){
+    .hero-section {
+        flex-direction: column;
+    }
+}

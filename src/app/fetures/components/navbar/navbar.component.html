@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg py-4">
+    <div class="container">
+        <a class="navbar-brand text-orange fw-bold fs-3" routerLink="home">SmartStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            @if (inMian) {
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-2">
+                    <a class="nav-link fs-5 text-white" routerLink="home" routerLinkActive="text-orange">Home</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link fs-5 text-white" routerLink="category" routerLinkActive="text-orange">Category</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link fs-5 text-white" routerLink="product" routerLinkActive="text-orange">Product</a>
+                </li>                
+                <li class="nav-item dropdown name me-2">
+                    <a class="nav-link dropdown-toggle rounded-3 text-white" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ userName }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item text-center">
+                            <a class="nav-link fw-medium text-white" 
+                             routerLinkActive="text-orange" (click)="logout()">
+                                logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            }
+            @else {
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-user fs-5 text-orange"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="login" routerLinkActive="text-orange">login</a></li>
+                        <li><a class="dropdown-item " routerLink="register" routerLinkActive="text-orange">register</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            }
+        </div>
+    </div>
+</nav>

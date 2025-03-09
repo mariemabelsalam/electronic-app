@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+body{
+    background-color: #f8f9fa;
+}
+
+.text-orange{
+    color: #ff7f50 !important;
+}
+
+.bg-orange {
+    background-color: #ff7f50;
+}
